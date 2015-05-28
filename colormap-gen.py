@@ -2,7 +2,7 @@ from omg import *
 import random
 import omg.colormap
 
-wad = WAD("D:/Doom/IWADS/DOOM.WAD")
+wad = WAD("C:/Stuff/Games/Doom Wads/DOOM.WAD")
 
 playpal = wad.data["PLAYPAL"]
 
@@ -78,31 +78,142 @@ grey_ramp = [4]
 grey_ramp.extend(range(80,112))
 grey_ramp.extend(range(5,9))
 grey_cramp = Color_ramp(grey_ramp)
+
+grey2_ramp = [3]
+grey2_ramp.extend(range(105,112))
+grey2_ramp.extend(range(5,9))
+grey2_cramp = Color_ramp(grey2_ramp)
     
 brown_ramp = []
 brown_ramp.extend(range(48,80))
 brown_ramp.extend(range(1,3))
+brown_ramp.append(0)
 brown_cramp = Color_ramp(brown_ramp)
     
 green_ramp = []
 green_ramp.extend(range(112,128))
-green_ramp.extend(12)
-green_ramp.extend(0)
+green_ramp.append(12)
+green_ramp.extend(range(7,9))
 green_cramp = Color_ramp(green_ramp)
     
 lbrown_ramp = []
 lbrown_ramp.extend(range(128,144))
-lbrown_ramp.append(151)
-lbrown_ramp.append(range(77,80))
-lbrown_ramp.append(range(1,3))
+lbrown_ramp.extend(range(13,16))
+lbrown_ramp.extend(range(77,80))
+lbrown_ramp.extend(range(1,3))
+lbrown_ramp.append(0)
 lbrown_cramp = Color_ramp(lbrown_ramp)
+
+mbrown_ramp = []
+mbrown_ramp.extend(range(144,152))
+mbrown_ramp.extend(range(78,80))
+mbrown_ramp.extend(range(1,3))
+mbrown_ramp.append(0)
+mbrown_cramp = Color_ramp(mbrown_ramp)
+
+lgreen_ramp = []
+lgreen_ramp.extend(range(152,160))
+lgreen_ramp.extend(range(9,13))
+lgreen_ramp.extend(range(7,9))
+lgreen_cramp = Color_ramp(lgreen_ramp)
+
+yellow_ramp = []
+yellow_ramp.extend(range(224,232))
+yellow_ramp.append(249)
+yellow_ramp.extend(range(161,168))
+yellow_ramp.extend(range(76,80))
+yellow_ramp.extend(range(1,3))
+yellow_ramp.append(0)
+yellow_cramp = Color_ramp(yellow_ramp)
+
+yellow2_ramp = []
+yellow2_ramp.extend(range(160,168))
+yellow2_ramp.extend(range(76,80))
+yellow2_ramp.extend(range(1,3))
+yellow2_ramp.append(0)
+yellow2_cramp = Color_ramp(yellow2_ramp)
+
+red_ramp = []
+red_ramp.extend(range(168,192))
+red_ramp.append(239)
+red_ramp.extend(range(1,3))
+red_ramp.append(0)
+red_cramp = Color_ramp(red_ramp)
     
+blue_ramp = []
+blue_ramp.extend(range(192,208))
+blue_ramp.extend(range(240,248))
+blue_cramp = Color_ramp(blue_ramp)
+
+orange_ramp = []
+orange_ramp.extend(range(208,224))
+orange_ramp.extend(range(232,236))
+orange_ramp.append(167)
+orange_ramp.extend(range(76,80))
+orange_ramp.extend(range(1,3))
+orange_ramp.append(0)
+orange_cramp = Color_ramp(orange_ramp)
+
+brown2_ramp = []
+brown2_ramp.extend(range(236,240))
+brown2_ramp.extend(range(1,3))
+brown2_ramp.append(0)
+brown2_cramp = Color_ramp(brown2_ramp)
+
+peach_ramp = []
+peach_ramp.append(248)
+peach_ramp.extend(range(215,224))
+peach_ramp.extend(range(232,236))
+peach_ramp.append(167)
+peach_ramp.extend(range(76,80))
+peach_ramp.extend(range(1,3))
+peach_ramp.append(0)
+peach_cramp = Color_ramp(peach_ramp)
+
+yellow3_ramp = [249]
+yellow3_ramp.append(249)
+yellow3_ramp.extend(range(161,168))
+yellow3_ramp.extend(range(76,80))
+yellow3_ramp.extend(range(1,3))
+yellow3_ramp.append(0)
+yellow3_cramp = Color_ramp(yellow3_ramp)
+
+purple_ramp = []
+purple_ramp.extend(range(250,255))
+purple_ramp.extend(range(42,48))
+purple_ramp.append(239)
+purple_ramp.extend(range(1,3))
+purple_ramp.append(0)
+purple_cramp = Color_ramp(purple_ramp)
+
+pink2_ramp = [255]
+pink2_ramp.extend(range(26,48))
+pink2_ramp.append(239)
+pink2_ramp.extend(range(1,3))
+pink2_ramp.append(0)
+pink2_cramp = Color_ramp(pink2_ramp)
+
     
 write_ramp(colormap,grey_cramp)
+write_ramp(colormap,grey2_cramp)
 write_ramp(colormap,brown_cramp)
 write_ramp(colormap,pink_cramp)
+write_ramp(colormap,pink2_cramp)
 write_ramp(colormap,green_cramp)
+write_ramp(colormap,lgreen_cramp)
 write_ramp(colormap,lbrown_cramp)
+write_ramp(colormap,mbrown_cramp)
+write_ramp(colormap,yellow_cramp)
+write_ramp(colormap,yellow2_cramp)
+write_ramp(colormap,yellow3_cramp)
+write_ramp(colormap,red_cramp)
+write_ramp(colormap,blue_cramp)
+write_ramp(colormap,orange_cramp)
+write_ramp(colormap,brown2_cramp)
+write_ramp(colormap,peach_cramp)
+write_ramp(colormap,purple_cramp)
+
+colormap.build_invuln()
 
 output_wad = WAD()
 output_wad.data["COLORMAP"] = colormap.to_lump()
